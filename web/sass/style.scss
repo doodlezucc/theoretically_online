@@ -47,15 +47,16 @@ a {
     border-radius: 16px;
     padding: 8px;
     text-decoration: none;
-}
-.app > img {
-    width: 96px;
-    height: 96px;
-    margin-right: 16px;
-}
-.app > div {
-    display: flex;
-    flex-direction: column;
+
+    > img {
+        width: 96px;
+        height: 96px;
+        margin-right: 16px;
+    }
+    > div {
+        display: flex;
+        flex-direction: column;
+    }
 }
 .app:hover {
     background-color: #fff1;
