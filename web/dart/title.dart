@@ -4,18 +4,19 @@ import 'dart:html';
 import 'dart:math';
 
 final HtmlElement _container = querySelector('#title');
-const fonts = [
-  'Arvo',
-  'Montserrat',
-  'Arial',
-];
 
 void initializeTitle(String left, String right) {
-  _createSide(left, _container.children[0]);
-  _createSide(right, _container.children[1]);
+  _createSide(left, _container.children[0], [
+    'Arvo',
+    'Montserrat',
+  ]);
+  _createSide(right, _container.children[1], [
+    'Montserrat',
+    'Arial',
+  ]);
 }
 
-void _createSide(String s, HtmlElement c) async {
+void _createSide(String s, HtmlElement c, List<String> fonts) async {
   for (var font in fonts) {
     c.append(HeadingElement.h1()
       ..text = s
