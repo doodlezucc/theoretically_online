@@ -1,19 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Montserrat:wght@400;500&display=swap');
 
-$dark: #111;
+$dark: #0e1014;
+$color-main: #ffe75d;
+
 
 html, body {
     margin: 0;
 }
 
 body {
-    padding: 32px;
-    padding-top: 256px;
     box-sizing: border-box;
     background-color: $dark;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    --color-main: #ffe75d;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -25,7 +24,6 @@ body {
 
 h1, h2, h3 {
     font-family: 'Arvo', serif;
-    color: var(--color-main);
 }
 h3 {
     margin: 0 0 8px 0;
@@ -75,12 +73,16 @@ header {
     display: flex;
     flex-direction: column;
     background-color: $dark;
+    z-index: 1;
 
     svg {
         position: absolute;
         z-index: -1;
         top: calc(100% - 20px);
         fill: $dark;
+        paint-order: stroke;
+        stroke: white;
+        stroke-width: 16px;
         transform-origin: top;
         transform: scaleY(0.5);
     }
@@ -93,7 +95,6 @@ header {
 
 #title {
     display: flex;
-    pointer-events: none;
     height: 60px;
     overflow: hidden;
     position: relative;
@@ -119,5 +120,26 @@ header {
         margin: 10px 0;
         display: flex;
         height: inherit;
+        color: $color-main;
     }
+}
+
+section {
+    padding: 40px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+section#greeting {
+    padding-top: calc(10vw + 80px);
+    padding-bottom: 60px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 0 80px black;
+    align-self: auto;
+}
+
+.dark-on-light {
+    color: $dark;
 }
