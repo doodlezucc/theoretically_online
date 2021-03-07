@@ -23,9 +23,6 @@ h1, h2, h3 {
     font-family: 'Arvo', serif;
     color: var(--color-main);
 }
-h1 {
-    margin-bottom: 0;
-}
 h3 {
     margin: 0 0 8px 0;
 }
@@ -63,4 +60,40 @@ a {
 }
 .app:active {
     background-color: #fff2;
+}
+
+#subtitle {
+    display: flex;
+    align-self: center;
+}
+
+#title {
+    display: flex;
+    pointer-events: none;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    align-self: center;
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        height: inherit;
+        font-size: 20px;
+        transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition-duration: 1s;
+        position: relative;
+    }
+    > .left > h1 {
+        font-weight: normal;
+    }
+    > .left {
+        align-items: flex-end;
+    }
+
+    h1 {
+        margin: 10px 0;
+        display: flex;
+        height: inherit;
+    }
 }

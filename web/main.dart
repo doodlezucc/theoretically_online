@@ -1,5 +1,5 @@
-import 'dart:html';
+import 'dart/title.dart';
 
 void main() {
-  querySelector('#output').text = 'Your Dart app is running.';
+  initializeTitle('Theoretically', 'Online');
 }
