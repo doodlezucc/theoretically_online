@@ -30,7 +30,7 @@ void _createSide(String s, HtmlElement c, List<String> fonts) async {
 
   while (true) {
     var i = rnd.nextInt(fonts.length);
-    c.style.top = '${i * -80}px';
+    c.style.top = 'calc(-$i * var(--height))';
     await Future.delayed(Duration(milliseconds: 1000 + rnd.nextInt(3000)));
   }
 }

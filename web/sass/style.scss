@@ -2,6 +2,7 @@
 
 $dark: #0e1014;
 $color-main: #ffe75d;
+$icon-size: calc(4vw + 32px);
 
 
 html, body {
@@ -40,16 +41,16 @@ a {
 
 .app {
     cursor: pointer;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     padding: 8px 0;
     display: inline-flex;
     border-radius: 16px;
-    padding: 8px;
+    padding: 16px;
     text-decoration: none;
 
     > img {
-        width: 96px;
-        height: 96px;
+        width: $icon-size;
+        height: $icon-size;
         margin-right: 16px;
     }
     > div {
@@ -76,9 +77,10 @@ header {
     z-index: 1;
 
     svg {
+        pointer-events: none;
         position: absolute;
         z-index: -1;
-        top: calc(100% - 20px);
+        top: 90%;
         fill: $dark;
         paint-order: stroke;
         stroke: white;
@@ -88,14 +90,10 @@ header {
     }
 }
 
-#subtitle {
-    display: flex;
-    align-self: center;
-}
-
 #title {
+    --height: calc(3vw + 32px);
     display: flex;
-    height: 60px;
+    height: var(--height);
     overflow: hidden;
     position: relative;
     align-self: center;
@@ -104,9 +102,10 @@ header {
         display: flex;
         flex-direction: column;
         height: inherit;
-        font-size: 20px;
+        font-size: calc(var(--height) / 4);
         transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
         transition-duration: 1s;
+        transition-property: top;
         position: relative;
     }
     > .left > h1 {
@@ -117,23 +116,32 @@ header {
     }
 
     h1 {
-        margin: 10px 0;
+        margin: 0;
+        padding: 10px 0;
+        box-sizing: border-box;
         display: flex;
         height: inherit;
         color: $color-main;
     }
 }
 
-section {
-    padding: 40px;
+#subtitle {
+    display: flex;
     align-self: center;
+    margin-bottom: 8px;
+}
+
+section {
+    padding: 40px 10px;
+    align-self: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
 }
 
 section#greeting {
-    padding-top: calc(10vw + 80px);
-    padding-bottom: 60px;
+    padding-top: calc(12vw + 80px);
+    padding-bottom: 80px;
     text-align: center;
     background-color: white;
     box-shadow: 0 0 80px black;
