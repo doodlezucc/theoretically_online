@@ -1,4 +1,3 @@
-An absolute bare-bones web app.
+# Theoretically Online
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+My very own personal website, showcasing all of my projects!
