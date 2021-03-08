@@ -36,11 +36,12 @@ h3 {
 }
 
 p {
-    margin: 0;
+    margin: 0 0 12px 0;
 }
 
 span {
     display: flex;
+    flex-flow: wrap;
     gap: 6px;
 }
 
@@ -52,6 +53,7 @@ button {
     color: $dark;
     font-family: inherit;
     font-weight: bold;
+    font-size: 0.9em;
     text-transform: uppercase;
     padding: 8px 12px;
 }
@@ -67,9 +69,20 @@ button:not(:disabled):active {
 
 a {
     color: inherit;
+    font-weight: bold;
+}
+a:hover {
+    color: black;
+    background-color: #fff8;
+}
+a:active {
+    background-color: #ffff;
+}
+a.button {
+    @extend button;
     text-decoration: none;
-    width: fit-content;
-    display: flex;
+    align-self: center;
+    text-align: center;
 }
 
 #apps {
@@ -180,22 +193,29 @@ header {
 }
 
 section {
-    padding: 40px 2vw;
+    padding: 40px 4vw;
     align-self: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+
+    > *:not(div) {
+        text-align: center;
+    }
 }
 
 section#greeting {
     padding-top: calc(12vw + 80px);
-    padding-bottom: 80px;
+    padding-bottom: 4vw;
     text-align: center;
-    background-color: white;
-    box-shadow: 0 0 80px black;
     align-self: auto;
 }
 
 .dark-on-light {
+    background-color: white;
     color: $dark;
+    box-shadow: 0 0 80px black;
+    font-weight: 500;
 }
