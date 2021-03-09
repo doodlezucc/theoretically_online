@@ -1,0 +1,36 @@
+@mixin tag($color, $icon, $brand: false) {
+    color: $color;
+    border-color: adjust-color($color, $alpha: -0.7) !important;
+    
+    &::before {
+        font-style: normal;
+        align-self: center;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: $icon;
+
+        @if $brand {
+            font-family: "Font Awesome 5 Brands";
+            font-weight: initial;
+        }
+    }
+}
+
+.web-style {
+    @include tag(#ffbc65, "\f268", true);
+}
+.web-code {
+    @include tag(#97e669, "\f121");
+}
+.desktop {
+    @include tag(#7dc5ff, "\f108");
+}
+.backend {
+    @include tag(#8c8eff, "\f233");
+}
+.mobile {
+    @include tag(#ddd, "\f3cd");
+}
+.cli {
+    @include tag(#eb5bd3, "\f120");
+}
