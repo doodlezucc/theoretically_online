@@ -102,13 +102,10 @@ a.button {
 #apps {
     padding: 4px 0;
     gap: 8px;
-    display: flex;
-    flex-flow: wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, [col-start] minmax(400px, 1fr) [col-end]);
     justify-content: space-evenly;
-
-    > *:nth-child(4n), > *:nth-child(4n + 1) {
-        flex: 30;
-    }
 
     > * {
         transition-duration: 0.1s;
@@ -124,7 +121,7 @@ a.button {
             width: $icon-size;
             height: $icon-size;
             margin-right: 16px;
-            align-self: center;
+            // align-self: center;
             
             @media (max-width: 800px) {
                 position: absolute;
@@ -238,13 +235,13 @@ section {
 }
 
 section#greeting {
-    padding-top: calc(12vw + 80px);
-    padding-bottom: 0;
+    padding-top: calc(11vw + 80px);
     text-align: center;
     align-self: auto;
 
     > p {
-        padding-bottom: 1.5vw;
+        padding-bottom: 0;
+        margin: 0;
     }
 }
 
@@ -285,6 +282,12 @@ ul {
     text-align: left;
     margin: 24px 0;
 
+    > div {
+        display: inline-flex;
+        flex-direction: column;
+        margin-top: 6px;
+    }
+
     li {
         font-weight: 500;
 
@@ -294,9 +297,6 @@ ul {
 
         &.sub {
             margin-left: 32px;
-        }
-        &.sub ~ li:not(.sub) {
-            margin-top: 12px;
         }
 
         i {
