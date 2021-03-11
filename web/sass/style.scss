@@ -33,6 +33,7 @@ h1, h2, h3 {
 }
 h2 {
     font-size: 1.8em;
+    line-height: initial;
     margin-bottom: 8px;
 }
 h3 {
@@ -110,20 +111,29 @@ a.button {
     }
 
     > * {
-        flex: auto;
         transition-duration: 0.1s;
         display: inline-flex;
         border-radius: 16px;
         padding: 16px;
         text-decoration: none;
         background-color: #4443;
-        min-width: 32vw;
+        // min-width: 32vw;
+        position: relative;
     
         > img {
             width: $icon-size;
             height: $icon-size;
             margin-right: 16px;
             align-self: center;
+            
+            @media (max-width: 800px) {
+                position: absolute;
+                right: 0;
+                margin-right: 8px;
+                top: 8px;
+                width: 32px;
+                height: 32px;
+            }
         }
         > div {
             display: flex;
@@ -162,6 +172,10 @@ header {
         transform-origin: top;
         transform: scaleY(0.5);
         
+        @media (max-width: 600px) {
+            top: 100%;
+            transform: scaleY(0.75);
+        }
     }
 }
 
@@ -203,6 +217,10 @@ header {
     display: flex;
     align-self: center;
     margin-bottom: 8px;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 section {
