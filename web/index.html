@@ -10,151 +10,141 @@
 	<title>Theoretically Online</title>
 	<link rel="stylesheet" href="style/style.css">
 	<link rel="icon" href="favicon.ico">
-	<script defer src="main.dart.js"></script>
 	<script src="https://kit.fontawesome.com/a3de05bb60.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<header>
-		<div id="title">
-			<div class="left"></div>
-			<div class="right"></div>
-		</div>
-		<span id="subtitle">Is it online? Idk, you tell me!</span>
-
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-			<path
-				d="M0,224L21.8,229.3C43.6,235,87,245,131,208C174.5,171,218,85,262,96C305.5,107,349,213,393,218.7C436.4,224,480,128,524,122.7C567.3,117,611,203,655,224C698.2,245,742,203,785,170.7C829.1,139,873,117,916,122.7C960,128,1004,160,1047,197.3C1090.9,235,1135,277,1178,266.7C1221.8,256,1265,192,1309,165.3C1352.7,139,1396,149,1418,154.7L1440,160L1440,0L1418.2,0C1396.4,0,1353,0,1309,0C1265.5,0,1222,0,1178,0C1134.5,0,1091,0,1047,0C1003.6,0,960,0,916,0C872.7,0,829,0,785,0C741.8,0,698,0,655,0C610.9,0,567,0,524,0C480,0,436,0,393,0C349.1,0,305,0,262,0C218.2,0,175,0,131,0C87.3,0,44,0,22,0L0,0Z">
-			</path>
-		</svg>
+		<h1>Theoretically Online</h1>
 	</header>
 
-	<section class="dark-on-light" id="greeting">
-		<h2>Hello!</h2>
-		<p>I make web apps and stuff.</p>
-	</section>
+	<div class="content">
+		<section class="dark-on-light" id="greeting">
+			<h2>Hello!</h2>
+			<p>I make web apps and stuff.</p>
+		</section>
 
-	<section id="demos">
-		<h2>Apps</h2>
-		<p>A collection of all applications I've finished so far.</p>
+		<section id="demos">
+			<h2>Apps</h2>
+			<p>A collection of all applications I've finished so far.</p>
 
-		<div id="apps">
-			<div>
-				<img src="https://raw.githubusercontent.com/doodlezucc/move_music/master/web/style/favicon.ico">
+			<div id="apps">
 				<div>
-					<h3 style="color: #ff4870">Move Music</h3>
-					<p>Move your liked songs, created playlists and followed artists from YouTube Music to Spotify.</p>
-					<span>
-						<a href="../movemusic" class="button">Open web app</a>
-					</span>
+					<img src="https://raw.githubusercontent.com/doodlezucc/move_music/master/web/style/favicon.ico">
+					<div>
+						<h3 style="color: #ff4870">Move Music</h3>
+						<p>Move your liked songs, created playlists and followed artists from YouTube Music to Spotify.
+						</p>
+						<span>
+							<a href="../movemusic" class="button">Open web app</a>
+						</span>
+					</div>
+				</div>
+				<div>
+					<img src="https://github.com/doodlezucc/FlpJck/blob/master/app/style/icon/icon.png?raw=true">
+					<div>
+						<h3 style="color: #ffc47f">FlpJck</h3>
+						<p>Always keep the latest versions of your Fruity Loops projects in the cloud.</p>
+						<span>
+							<a href="../flpjck" class="button">Downloads</a>
+							<a href="https://github.com/doodlezucc/FlpJck" class="button" target="_blank"
+								referrerpolicy="noopener noreferrer">
+								View on GitHub <i class="fab fa-github"></i>
+							</a>
+						</span>
+					</div>
+				</div>
+				<div>
+					<img src="https://github.com/doodlezucc/SnippetFeed/blob/master/assets/icon/icon.png?raw=true">
+					<div>
+						<h3 style="color: #c3917d">SnippetFeed</h3>
+						<p>Merge an audio file with an image to create a video suitable for Instagram.</p>
+						<span>
+							<a href="https://github.com/doodlezucc/SnippetFeed" class="button" target="_blank"
+								referrerpolicy="noopener noreferrer">
+								View on GitHub <i class="fab fa-github"></i>
+							</a>
+						</span>
+					</div>
 				</div>
 			</div>
-			<div>
-				<img src="https://github.com/doodlezucc/FlpJck/blob/master/app/style/icon/icon.png?raw=true">
-				<div>
-					<h3 style="color: #ffc47f">FlpJck</h3>
-					<p>Always keep the latest versions of your Fruity Loops projects in the cloud.</p>
-					<span>
-						<a href="../flpjck" class="button">Downloads</a>
-						<a href="https://github.com/doodlezucc/FlpJck" class="button" target="_blank"
-							referrerpolicy="noopener noreferrer">
-							View on GitHub <i class="fab fa-github"></i>
-						</a>
-					</span>
-				</div>
-			</div>
-			<div>
-				<img src="https://github.com/doodlezucc/SnippetFeed/blob/master/assets/icon/icon.png?raw=true">
-				<div>
-					<h3 style="color: #c3917d">SnippetFeed</h3>
-					<p>Merge an audio file with an image to create a video suitable for Instagram.</p>
-					<span>
-						<a href="https://github.com/doodlezucc/SnippetFeed" class="button" target="_blank"
-							referrerpolicy="noopener noreferrer">
-							View on GitHub <i class="fab fa-github"></i>
-						</a>
-					</span>
-				</div>
-			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="dark-on-light" style="background-color: #ffda7c">
-		<h2>This one's for the devs</h2>
-		<p>Resources for developers, such as installable packages.
-			<br>(By the way, every personal project I decide to publish is <b>open source</b> and available on
-			<a href="https://github.com/doodlezucc">GitHub</a>.)
-		</p>
-
-		<div id="apps">
-			<div>
-				<div>
-					<h3>Directory Router</h3>
-					<p>Every web app hosted here is just a directory on a server.
-						<br>This Dart program redirects incoming URLs to the correct sub website.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="about">
-		<h2>About Me</h2>
-		<div>
-			<p>
-				I'm a fullstack developer with programming experience of roughly <b>10 years</b>, born and raised in
-				Germany.
-			</p>
-			<p>
-				The story of this passion begins with eight year old me playing around with a cute visual programming
-				language called
-				<a target="_blank" referrerpolicy="noopener noreferrer" href="https://scratch.mit.edu/">Scratch</a>,
-				which I used to create little games.
-			</p>
-			<p>
-				Here's a list of languages I use for different types of projects:
+		<section class="dark-on-light" style="background-color: #ffda7c">
+			<h2>This One's For the Devs</h2>
+			<p>Resources for developers, such as installable packages.
+				<br>(By the way, every personal project I decide to publish is <b>open source</b> and available on
+				<a href="https://github.com/doodlezucc">GitHub</a>.)
 			</p>
 
-			<h3>Languages</h3>
-			<span>
-				<span class="tag web-style"> Web Styling</span>
-				<span class="tag web-code"> Web Coding</span>
-				<span class="tag backend"> Server Backend</span>
-				<span class="tag desktop"> Desktop App</span>
-				<span class="tag mobile"> Mobile App</span>
-				<span class="tag cli"> Command Line Interface</span>
-			</span>
-			<ul>
-				<li class="styling">HTML<i class="web-style"></i></li>
+			<div id="apps">
+				<div>
+					<div>
+						<h3>Directory Router</h3>
+						<p>Every web app hosted here is just a directory on a server.
+							<br>This Dart program redirects incoming URLs to the correct sub website.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
 
-				<li class="styling">CSS / SCSS<i class="web-style"></i></li>
+		<section id="about">
+			<h2>About Me</h2>
+			<div>
+				<p>
+					I'm a fullstack developer with programming experience of roughly <b>10 years</b>, born and raised in
+					Germany.
+				</p>
+				<p>
+					Here's a list of languages I use for different types of projects:
+				</p>
 
-				<div>
-					<li>Dart<i class="web-code"></i><i class="cli"></i></li>
-					<li class="sub">Flutter<i class="desktop"></i><i class="mobile"></i></li>
-					<li class="sub">Shelf<i class="backend"></i></li>
-				</div>
+				<h3>Languages</h3>
+				<span>
+					<span class="tag web-style"> Web Styling</span>
+					<span class="tag web-code"> Web Coding</span>
+					<span class="tag backend"> Server Backend</span>
+					<span class="tag desktop"> Desktop App</span>
+					<span class="tag mobile"> Mobile App</span>
+					<span class="tag cli"> Command Line Interface</span>
+				</span>
+				<ul>
+					<li class="styling">HTML<i class="web-style"></i></li>
 
-				<div>
-					<li>JavaScript / jQuery<i class="web-code"></i></li>
-					<li class="sub">Node.js<i class="backend"></i> <i class="cli"></i></li>
-					<li class="sub">Electron.js<i class="desktop"></i></li>
-				</div>
-				<div>
-					<li>Java<i class="cli"></i></li>
-					<li class="sub">JavaFX<i class="desktop"></i></li>
-				</div>
-				<div>
-					<li>C#<i class="cli"></i></li>
-					<li class="sub">Unity3d<i class="desktop"></i><i class="mobile"></i></li>
-				</div>
-				<div>
-					<li>Python<i class="cli"></i></li>
-					<li class="sub">Blender<i class="desktop"></i></li>
-				</div>
-			</ul>
-		</div>
-	</section>
+					<li class="styling">CSS / SCSS<i class="web-style"></i></li>
+
+					<div>
+						<li>Dart<i class="web-code"></i><i class="cli"></i></li>
+						<li class="sub">Flutter<i class="desktop"></i><i class="mobile"></i></li>
+						<li class="sub">Shelf<i class="backend"></i></li>
+					</div>
+
+					<div>
+						<li>JavaScript / jQuery<i class="web-code"></i></li>
+						<li class="sub">Node.js<i class="backend"></i> <i class="cli"></i></li>
+						<li class="sub">Electron.js<i class="desktop"></i></li>
+					</div>
+					<div>
+						<li>Java<i class="cli"></i></li>
+						<li class="sub">JavaFX<i class="desktop"></i></li>
+					</div>
+					<div>
+						<li>C#<i class="cli"></i></li>
+						<li class="sub">Unity3d<i class="desktop"></i><i class="mobile"></i></li>
+					</div>
+					<div>
+						<li>Python<i class="cli"></i></li>
+						<li class="sub">Blender<i class="desktop"></i></li>
+					</div>
+				</ul>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		Empty footer, yeah
+	</footer>
 </body>
 
 </html>

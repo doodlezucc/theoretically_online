@@ -12,7 +12,6 @@ html, body {
 }
 
 body {
-    padding-bottom: 120px;
     box-sizing: border-box;
     background-color: $dark;
     color: white;
@@ -146,35 +145,19 @@ a.button {
     }
 }
 
-header {
-    position: absolute;
+header, footer {
+    position: sticky;
     left: 0;
-    top: 0;
-    padding-top: 2vw;
     width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column;
     background-color: $dark;
     z-index: 1;
-
-    svg {
-        pointer-events: none;
-        position: absolute;
-        z-index: -1;
-        top: calc(100% - 3vw);
-        fill: $dark;
-        paint-order: stroke;
-        stroke: white;
-        stroke-width: 16px;
-        transform-origin: top;
-        transform: scaleY(0.5);
-        
-        @media (max-width: 600px) {
-            top: 100%;
-            transform: scaleY(0.75);
-        }
-    }
+    box-shadow: 0 0 16px #0007;
 }
+header { top: 0; }
+footer { bottom: 0; }
 
 #title {
     --height: calc(3vw + 32px);
@@ -227,6 +210,7 @@ section {
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-height: 300px;
     box-sizing: border-box;
 
     > *:not(div) {
@@ -235,9 +219,8 @@ section {
 }
 
 section#greeting {
-    padding-top: calc(11vw + 80px);
     text-align: center;
-    align-self: auto;
+    justify-content: center;
 
     > p {
         padding-bottom: 0;
