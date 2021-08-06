@@ -19,9 +19,41 @@
 	</header>
 
 	<div class="content">
-		<section class="dark-on-light" id="greeting">
+		<section class="dark-on-light paper flicker" id="greeting">
 			<h2>Hello!</h2>
 			<p>I make web apps and stuff.</p>
+		</section>
+
+		<section class="cardboard">
+			<svg width="100%" height="100%">
+				<defs>
+					<pattern id="pattern" patternUnits="userSpaceOnUse" width="35" height="35"
+						patternTransform="rotate(45)">
+						<line y2="100" stroke-width="3px"></line>
+					</pattern>
+
+					<filter id="sticker">
+						<feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="6"></feMorphology>
+
+						<feFlood flood-color="#2e2926" flood-opacity="1" result="PINK"></feFlood>
+						<feComposite in="PINK" in2="DILATED" operator="in" result="OUTLINE"></feComposite>
+
+						<feMerge>
+							<feMergeNode in="OUTLINE" />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
+					</filter>
+				</defs>
+
+				<rect width="100%" height="100%" fill="url(#pattern)"></rect>
+				<g filter="url(#sticker)">
+					<image x="50%" y="50%"
+						href="https://github.com/doodlezucc/dnd_interactive/blob/master/web/images/icon.png?raw=true"
+						width="128" height="128" transform="translate(-64, -64)">
+					</image>
+				</g>
+				<text x="50%" y="100px" dominant-baseline="hanging" text-anchor="middle">D&D Interactive</text>
+			</svg>
 		</section>
 
 		<section id="demos">
@@ -70,7 +102,7 @@
 			</div>
 		</section>
 
-		<section class="dark-on-light" style="background-color: #ffda7c">
+		<section class="dark-on-light flicker">
 			<h2>This One's For the Devs</h2>
 			<p>Resources for developers, such as installable packages.
 				<br>(By the way, every personal project I decide to publish is <b>open source</b> and available on
@@ -142,9 +174,7 @@
 		</section>
 	</div>
 
-	<footer>
-		Empty footer, yeah
-	</footer>
+	<script src="js/index.js"></script>
 </body>
 
 </html>

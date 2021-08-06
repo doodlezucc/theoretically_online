@@ -1,11 +1,14 @@
 @use 'tags.scss';
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Montserrat:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Montserrat&family=Vollkorn&family=Recursive&display=swap');
 
-$dark: #15181f;
+$dark: #11100f;
 $light-gray: #bbb;
-$color-main: #ffe75d;
+$light: #ffe6c5;
 $icon-size: calc(4vw + 32px);
-
+$tex-cardboard: "../images/cardboard.jpg";
+$tex-paper: "../images/paper-with-fibers.jpg";
+$tex-paper-blue: "../images/paper-blue.jpg";
+$header-height: 70px;
 
 html, body {
     margin: 0;
@@ -20,10 +23,12 @@ body {
     flex-direction: column;
     position: relative;
     line-height: 1.4em;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 ::selection {
-    background-color: #5c5c5c;
+    background-color: #66504d;
 }
 
 h1, h2, h3 {
@@ -56,7 +61,7 @@ span {
 button {
     outline: none;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     background-color: white;
     color: $dark;
     font-family: inherit;
@@ -145,73 +150,62 @@ a.button {
     }
 }
 
-header, footer {
-    position: sticky;
+header {
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    padding: 16px;
+    height: $header-height;
+    padding: 0 20px;
+    // padding-top: 6px;
     box-sizing: border-box;
+    align-items: center;
     display: flex;
-    background-color: $dark;
-    z-index: 1;
-    box-shadow: 0 0 16px #0007;
-}
-header { top: 0; }
-footer { bottom: 0; }
-
-#title {
-    --height: calc(3vw + 32px);
-    display: flex;
-    height: calc(var(--height) * 0.8);
-    overflow: hidden;
-    position: relative;
-    align-self: center;
-
-    > div {
-        display: flex;
-        flex-direction: column;
-        height: fit-content;
-        font-size: calc(var(--height) / 4);
-        transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
-        transition-duration: 1s;
-        transition-property: top;
-        position: relative;
-    }
-    > .left > h1 {
-        font-weight: normal;
-    }
-    > .left {
-        align-items: flex-end;
-    }
+    background-color: #2c2521be;
+    z-index: 10;
+    box-shadow: 0 0 48px #0003;
+    backdrop-filter: grayscale(0.5) blur(5px);
 
     h1 {
-        padding: 10px 0;
-        box-sizing: border-box;
-        display: table;
-        height: var(--height);
-        color: $color-main;
+        font-family: 'Vollkorn', serif;
+        font-size: calc(1.3em + 1vw);
     }
 }
 
-#subtitle {
-    display: flex;
-    align-self: center;
-    margin-bottom: 8px;
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px #000a);
 
-    @media (max-width: 600px) {
-        display: none;
+    line { stroke: #1a1717; }
+
+    text {
+        fill: #fb8;
+        stroke: #1a1717;
+        stroke-width: 12px;
+        font-family: 'Recursive';
+        font-size: calc(2em + 2vw);
+        font-weight: bold;
+        paint-order: stroke;
     }
 }
 
 section {
-    padding: 60px 6vw;
+    padding: 90px 6vw;
     align-self: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 300px;
+    min-height: 400px;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
 
     > *:not(div) {
         text-align: center;
@@ -219,6 +213,7 @@ section {
 }
 
 section#greeting {
+    padding-top: #{90px + $header-height};
     text-align: center;
     justify-content: center;
 
@@ -229,10 +224,11 @@ section#greeting {
 }
 
 .dark-on-light {
-    background-color: white;
-    color: $dark;
-    box-shadow: 0 0 80px black;
+    background: url($tex-paper-blue);
+    color: black;
     font-weight: 500;
+    position: relative;
+    z-index: -1;
     
     b {
         font-weight: bold;
@@ -245,6 +241,17 @@ section#greeting {
     a:active {
         background-color: #ffff;
     }
+}
+
+.paper {
+    background: url($tex-paper);
+    filter: sepia(0.2);
+}
+.cardboard {
+    background: url($tex-cardboard);
+    box-shadow: 0 0 40px #0005;
+
+    > * { z-index: 1; }
 }
 
 section#about {
