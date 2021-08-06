@@ -25,18 +25,33 @@
 		</section>
 
 		<section class="cardboard">
+			<div>
+				<div>
+					<h2>A virtual tabletop for <b>Dungeons & Dragons</b></h2>
+					<p>Play together with players all over the world, whenever you want!</p>
+				</div>
+				<a href="../dnd" class="button">Enter the Dungeon</a>
+			</div>
+
 			<svg width="100%" height="100%">
 				<defs>
+					<pattern id="wave" patternUnits="userSpaceOnUse" width="4" height="21"
+						patternTransform="scale(20, 10)">
+						<path d="M -1 20 L -1 1 Q 0 0, 1 1 T 3 1 T 5 1 L 5 20" fill="white" />
+					</pattern>
 					<pattern id="pattern" patternUnits="userSpaceOnUse" width="35" height="35"
 						patternTransform="rotate(45)">
-						<line y2="100" stroke-width="3px"></line>
+						<line y2="100" stroke-width="3px" />
+					</pattern>
+					<pattern id="cardboard" patternUnits="userSpaceOnUse" width="1024" height="1024">
+						<image href="images/cardboard.jpg" />
 					</pattern>
 
 					<filter id="sticker">
-						<feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="6"></feMorphology>
+						<feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="1" />
 
-						<feFlood flood-color="#2e2926" flood-opacity="1" result="PINK"></feFlood>
-						<feComposite in="PINK" in2="DILATED" operator="in" result="OUTLINE"></feComposite>
+						<feFlood flood-color="#1a1717" flood-opacity="1" result="FLOODED" />
+						<feComposite in="FLOODED" in2="DILATED" operator="in" result="OUTLINE" />
 
 						<feMerge>
 							<feMergeNode in="OUTLINE" />
@@ -45,27 +60,47 @@
 					</filter>
 				</defs>
 
-				<rect width="100%" height="100%" fill="url(#pattern)"></rect>
-				<g filter="url(#sticker)">
-					<image x="50%" y="50%"
-						href="https://github.com/doodlezucc/dnd_interactive/blob/master/web/images/icon.png?raw=true"
-						width="128" height="128" transform="translate(-64, -64)">
+				<mask id="cutout">
+					<rect width="100%" height="11%" fill="url(#wave)" />
+					<rect width="100%" height="80%" y="10%" fill="white" />
+					<rect width="100%" height="11%" fill="url(#wave)"
+						style="transform: translate(0, 100%) scale(1,-1)" />
+					<g fill="black">
+						<rect x="20%" y="20%" width="60%" height="60%" rx="16px"></rect>
+					</g>
+				</mask>
+
+				<g mask="url(#cutout)">
+					<rect width="100%" height="100%" fill="url(#cardboard)" />
+					<rect width="100%" height="100%" fill="url(#pattern)"></rect>
+				</g>
+
+				<g filter="url(#sticker)" class="shake">
+					<image href="images/dnd-outline.png" width="14%" height="14%" x="-7%" y="-7%">
 					</image>
 				</g>
-				<text x="50%" y="100px" dominant-baseline="hanging" text-anchor="middle">D&D Interactive</text>
+				<text x="50%" y="7%" dominant-baseline="hanging" text-anchor="middle">D&D Interactive</text>
 			</svg>
+
+			<i class="fas fa-star" style="left: 83%; top: 60%;"></i>
+			<i class="fas fa-dice-d20"
+				style="left: 86%; top: 10%; animation-direction: reverse; animation-delay: -2s;"></i>
+			<i class="fas fa-magic" style="left: 10%; top: 40%;"></i>
+			<i class="fas fa-dragon"
+				style="left: 24%; top: 85%; animation-direction: reverse; animation-delay: -9s;"></i>
 		</section>
 
 		<section id="demos">
-			<h2>Apps</h2>
+			<h2>More Apps</h2>
 			<p>A collection of all applications I've finished so far.</p>
 
-			<div id="apps">
+			<div class="apps">
 				<div>
 					<img src="https://raw.githubusercontent.com/doodlezucc/move_music/master/web/style/favicon.ico">
-					<div>
-						<h3 style="color: #ff4870">Move Music</h3>
-						<p>Move your liked songs, created playlists and followed artists from YouTube Music to Spotify.
+					<div style="--col: #ff4870">
+						<h3>Move Music</h3>
+						<p>Move your liked songs, created playlists and followed artists from
+							<b>YouTube Music to Spotify</b>.
 						</p>
 						<span>
 							<a href="../movemusic" class="button">Open web app</a>
@@ -74,9 +109,9 @@
 				</div>
 				<div>
 					<img src="https://github.com/doodlezucc/FlpJck/blob/master/app/style/icon/icon.png?raw=true">
-					<div>
-						<h3 style="color: #ffc47f">FlpJck</h3>
-						<p>Always keep the latest versions of your Fruity Loops projects in the cloud.</p>
+					<div style="--col: #ffc47f">
+						<h3>FlpJck</h3>
+						<p>Always keep the latest versions of your <b>Fruity Loops projects</b> in the cloud.</p>
 						<span>
 							<a href="../flpjck" class="button">Downloads</a>
 							<a href="https://github.com/doodlezucc/FlpJck" class="button" target="_blank"
@@ -88,9 +123,9 @@
 				</div>
 				<div>
 					<img src="https://github.com/doodlezucc/SnippetFeed/blob/master/assets/icon/icon.png?raw=true">
-					<div>
-						<h3 style="color: #c3917d">SnippetFeed</h3>
-						<p>Merge an audio file with an image to create a video suitable for Instagram.</p>
+					<div style="--col: #c3917d">
+						<h3>SnippetFeed</h3>
+						<p>Merge an audio file with an image to create a video suitable for <b>Instagram</b>.</p>
 						<span>
 							<a href="https://github.com/doodlezucc/SnippetFeed" class="button" target="_blank"
 								referrerpolicy="noopener noreferrer">
@@ -102,14 +137,15 @@
 			</div>
 		</section>
 
-		<section class="dark-on-light flicker">
+		<section class="dark-on-light contrast-children flicker">
 			<h2>This One's For the Devs</h2>
-			<p>Resources for developers, such as installable packages.
-				<br>(By the way, every personal project I decide to publish is <b>open source</b> and available on
+			<p>Resources for developers, such as installable packages.</p>
+			<p>
+				(By the way, every personal project I decide to publish is <b>open source</b> and available on
 				<a href="https://github.com/doodlezucc">GitHub</a>.)
 			</p>
 
-			<div id="apps">
+			<div class="apps">
 				<div>
 					<div>
 						<h3>Directory Router</h3>

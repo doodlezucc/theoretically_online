@@ -1,5 +1,5 @@
 @use 'tags.scss';
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Montserrat&family=Vollkorn&family=Recursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Montserrat&family=Averia+Libre&family=Recursive&display=swap');
 
 $dark: #11100f;
 $light-gray: #bbb;
@@ -8,7 +8,7 @@ $icon-size: calc(4vw + 32px);
 $tex-cardboard: "../images/cardboard.jpg";
 $tex-paper: "../images/paper-with-fibers.jpg";
 $tex-paper-blue: "../images/paper-blue.jpg";
-$header-height: 70px;
+$header-height: 60px;
 
 html, body {
     margin: 0;
@@ -28,7 +28,7 @@ body {
 }
 
 ::selection {
-    background-color: #66504d;
+    background-color: #817770;
 }
 
 h1, h2, h3 {
@@ -68,7 +68,7 @@ button {
     font-weight: bold;
     font-size: 0.9em;
     text-transform: uppercase;
-    padding: 8px 12px;
+    padding: 10px 16px;
 
     i {
         font-size: inherit;
@@ -103,13 +103,17 @@ a.button {
     text-align: center;
 }
 
-#apps {
+.content {
+    overflow: hidden;
+}
+
+.apps {
     padding: 4px 0;
     gap: 8px;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, [col-start] minmax(400px, 1fr) [col-end]);
-    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     > * {
         transition-duration: 0.1s;
@@ -118,9 +122,15 @@ a.button {
         padding: 16px;
         text-decoration: none;
         background-color: #4443;
-        // min-width: 32vw;
+        min-width: 300px;
+        max-width: 650px;
         position: relative;
     
+        h3, b {
+            color: var(--col);
+            font-weight: bold;
+        }
+
         > img {
             width: $icon-size;
             height: $icon-size;
@@ -156,42 +166,65 @@ header {
     left: 0;
     width: 100%;
     height: $header-height;
-    padding: 0 20px;
-    // padding-top: 6px;
+    padding: 0 14px;
     box-sizing: border-box;
     align-items: center;
+    justify-content: center;
     display: flex;
-    background-color: #2c2521be;
+    background-color: #1b1715af;
+    color: $light;
     z-index: 10;
     box-shadow: 0 0 48px #0003;
     backdrop-filter: grayscale(0.5) blur(5px);
 
     h1 {
-        font-family: 'Vollkorn', serif;
+        font-family: 'Averia Libre', serif;
         font-size: calc(1.3em + 1vw);
+        font-weight: normal;
     }
 }
 
 svg {
     position: absolute;
+    pointer-events: none;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 0;
     stroke-linejoin: round;
-    filter: drop-shadow(0 0 6px #000a);
+    filter: drop-shadow(0 0 4px #0005);
 
     line { stroke: #1a1717; }
 
     text {
         fill: #fb8;
         stroke: #1a1717;
-        stroke-width: 12px;
+        stroke-width: 16px;
         font-family: 'Recursive';
-        font-size: calc(2em + 2vw);
+        font-size: calc(1.6em + 1.5vw);
         font-weight: bold;
         paint-order: stroke;
+    }
+}
+
+@keyframes shake-offset {
+    0%   { transform: translate(21%, 20%) rotate(-5deg); }
+    50%  { transform: translate(20%, 20%) rotate(5deg); }
+    100% { transform: translate(21%, 20%) rotate(-5deg); }
+}
+
+.shake {
+    animation: shake-offset 3.5s ease-in-out infinite;
+}
+
+.contrast-children {
+    gap: 4px;
+
+    > p, h2 {
+        background-color: #fff0d5a8;
+        margin: 0;
+        padding: 2px;
     }
 }
 
@@ -205,7 +238,6 @@ section {
     min-height: 400px;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
 
     > *:not(div) {
         text-align: center;
@@ -228,11 +260,9 @@ section#greeting {
     color: black;
     font-weight: 500;
     position: relative;
-    z-index: -1;
+    z-index: 0;
     
-    b {
-        font-weight: bold;
-    }
+    b { font-weight: bold; }
 
     a:hover {
         color: black;
@@ -241,17 +271,52 @@ section#greeting {
     a:active {
         background-color: #ffff;
     }
+
+    .apps > * {
+        background-color: #fff0d5a8;
+    }
 }
 
 .paper {
     background: url($tex-paper);
     filter: sepia(0.2);
 }
+
+@keyframes spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .cardboard {
-    background: url($tex-cardboard);
-    box-shadow: 0 0 40px #0005;
+    background: none;
+    padding: 15vh 20vw;
+    justify-content: center;
+    transform: scale(1.1);
 
     > * { z-index: 1; }
+
+    b { color: #fb8; }
+    a { background-color: #fb8; }
+
+    > div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 16px;
+        box-sizing: border-box;
+        gap: 32px;
+
+        > div { text-align: center; }
+
+        * { margin: 0; }
+    }
+
+    > i {
+        position: absolute;
+        font-size: calc(2em + 1vw);
+        color: #1a1717;
+        animation: spin 12s linear infinite;
+    }
 }
 
 section#about {

@@ -12,7 +12,10 @@ function applyTextureOffset(elem) {
 
 let slowFlickerTimer = setInterval(() => {
     textureX += textureSize / 3;
-    textureY += textureSize / 7;
+    textureY += textureSize * 5 / 7;
+
+    textureX %= textureSize;
+    textureY %= textureSize;
 
     document.querySelectorAll(".flicker").forEach(applyTextureOffset);
 }, 600);
