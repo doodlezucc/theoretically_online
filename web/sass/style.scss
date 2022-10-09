@@ -58,12 +58,19 @@ span {
 	gap: 6px;
 }
 
-@function btn-padding($top) {
+@mixin btn-elevate($amount) {
 	$horiz: 14px;
-	@return 10px $horiz (10px + $top) $horiz;
+	padding: 10px $horiz (10px + $amount) $horiz;
+	box-shadow: 0 (-$amount) 0 #0007 inset;
+
+	$pad: 4px - $amount;
+	@if $pad != 0px {
+		margin-top: $pad;
+	}
 }
 
 button {
+	@include btn-elevate(4px);
 	outline: none;
 	border: none;
 	border-radius: 4px;
@@ -73,8 +80,6 @@ button {
 	font-weight: bold;
 	font-size: 0.9em;
 	text-transform: uppercase;
-	padding: btn-padding(4px);
-	box-shadow: 0 -4px 0 #0007 inset;
 	line-height: normal;
 	transition: 0.5s;
 
@@ -86,12 +91,11 @@ button:enabled {
 	cursor: pointer;
 }
 button:not(:disabled):hover {
-	box-shadow: 0 -2px 0 #0007 inset;
-	padding: btn-padding(2px);
-	margin-top: 2px;
+	@include btn-elevate(2px);
 	transition: 0.15s;
 }
 button:not(:disabled):active {
+	@include btn-elevate(1px);
 	background-color: #aaa;
 }
 
