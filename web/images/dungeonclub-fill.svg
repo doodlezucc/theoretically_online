@@ -1,0 +1,7 @@
+<svg id="icon" width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" clip-rule="evenodd"
+		d="M64 7H11C5 7 2 10 2 16V113C2 119 6 123 12 123C15 123 17.5 121 20 119C22.5 117 25 115 28 115C31 115 34 117 37 119C40 121 43 123 46 123C49 123 52 121 55 119C58 117 61 115 64 115C67 115 70 117 73 119C76 121 79 123 82 123C85 123 88 121 91 119C94 117 97 115 100 115C103 115 105.5 117 108 119C110.5 121 113 123 116 123C122 123 126 119 126 113V16C126 10 123 7 117 7H64Z"
+		fill="#FFB87D" />
+	<circle cx="38" cy="58" r="18" fill="#1A1717" stroke="transparent" />
+	<circle cx="90" cy="58" r="18" fill="#1A1717" stroke="transparent" />
+</svg>
