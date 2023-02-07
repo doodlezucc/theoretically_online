@@ -9,6 +9,11 @@ $tex-cardboard: "../images/cardboard.jpg";
 $tex-paper: "../images/paper-with-fibers.jpg";
 $tex-paper-blue: "../images/paper-blue.jpg";
 $section-padding-vertical: 6em;
+$beige-on-blue: hsla(39, 100%, 92%, 0.659);
+
+@function tainted($s, $l) {
+	@return hsl(var(--button-hue), $s, $l);
+}
 
 html, body {
 	margin: 0;
@@ -24,6 +29,7 @@ body {
 	line-height: 1.4em;
 	overflow-y: scroll;
 	overflow-x: hidden;
+
 	--bold: 500;
 	--cardboard-cutout-html-width: 12vw;
 	--cardboard-cutout-width: var(--cardboard-cutout-html-width);
@@ -32,6 +38,14 @@ body {
 	--section-height: 30em;
 	--header-margin: 2em;
 	--svg-title-size: 11px;
+
+	--button-color: #{$dark};
+	--button-color-hover: var(--button-color);
+	--button-color-active: var(--button-color-hover);
+
+	--button-background: hsl(0, 0%, 100%);
+	--button-background-hover: hsl(0, 0%, 80%);
+	--button-background-active: hsl(0, 0%, 70%);
 }
 
 * {
@@ -74,7 +88,7 @@ span {
 	$horiz: 1em;
 	$vert: 0.8em;
 	padding: $vert $horiz ($vert + $amount) $horiz;
-	box-shadow: 0 (-$amount) 0 #0007 inset;
+	box-shadow: 0 (-$amount) 0 #0005 inset;
 
 	$pad: $horiz - $vert - $amount;
 	@if $pad != 0px {
@@ -87,8 +101,8 @@ button {
 	outline: none;
 	border: none;
 	border-radius: 0.3em;
-	background-color: white;
-	color: $dark;
+	background-color: var(--button-background);
+	color: var(--button-color);
 	font-family: inherit;
 	font-weight: 600;
 	font-size: 0.9em;
@@ -106,10 +120,14 @@ button:enabled {
 button:not(:disabled):hover {
 	@include btn-elevate(0.1em);
 	transition: 0.15s;
+	color: var(--button-color-hover);
+	background-color: var(--button-background-hover);
 }
 button:not(:disabled):active {
 	@include btn-elevate(0.05em);
-	background-color: #aaa;
+	transition: 0s;
+	color: var(--button-color-active);
+	background-color: var(--button-background-active);
 }
 
 a {
@@ -283,8 +301,15 @@ $sticker-inset: 64px * $sticker-scale;
 	gap: 4px;
 
 	> p, h2 {
-		background-color: #fff0d5a8;
+		background-color: $beige-on-blue;
 		padding: 2px;
+	}
+
+	button {
+		--button-hue: 39;
+		--button-background: #{tainted(100%, 98%)};
+		--button-background-hover: #{tainted(40%, 70%)};
+		--button-background-active: #{tainted(25%, 54%)};
 	}
 }
 
@@ -318,9 +343,15 @@ section#greeting {
 	background: url($tex-paper-blue);
 	color: black;
 	font-weight: 500;
-	--bold: bold;
 	position: relative;
 	z-index: 0;
+
+	--bold: bold;
+
+	--button-hue: 26;
+	--button-background: #{tainted(100%, 77%)};
+	--button-background-hover: #{tainted(61%, 68%)};
+	--button-background-active: #{tainted(37%, 54%)};
 
 	a:hover {
 		color: black;
@@ -330,8 +361,8 @@ section#greeting {
 		background-color: #ffff;
 	}
 
-	.apps > * {
-		background-color: #fff0d5a8;
+	.app {
+		background-color: $beige-on-blue;
 	}
 }
 
@@ -351,12 +382,15 @@ section#greeting {
 	background: none;
 	padding: 6rem 0;
 	justify-content: center;
-	--button-color: #fb8;
+	
+	--button-hue: 26;
+	--button-background: #{tainted(100%, 77%)};
+	--button-background-hover: #{tainted(65%, 65%)};
+	--button-background-active: #{tainted(30%, 54%)};
 
 	> * { z-index: 1; }
 
-	b { color: #fb8; }
-	a { background-color: #fb8; }
+	b { color: var(--button-background); }
 
 	> div {
 		display: flex;
