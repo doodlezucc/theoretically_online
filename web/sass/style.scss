@@ -4,7 +4,7 @@
 $dark: #11100f;
 $light-gray: #bbb;
 $light: #ffe6c5;
-$icon-size: calc(4vw + 32px);
+$icon-size: 5em;
 $tex-cardboard: "../images/cardboard.jpg";
 $tex-paper: "../images/paper-with-fibers.jpg";
 $tex-paper-blue: "../images/paper-blue.jpg";
@@ -153,8 +153,7 @@ a.button {
 }
 
 .apps {
-	padding: 4px 0;
-	gap: 8px;
+	gap: 0.5em;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -168,8 +167,8 @@ a.button {
 	padding: 1em;
 	text-decoration: none;
 	background-color: #4443;
-	min-width: 20em;
-	max-width: 30em;
+	min-width: 10em;
+	max-width: 32em;
 	position: relative;
 
 	&:hover {
