@@ -1,15 +1,8 @@
+@use './constants.scss' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Montserrat:wght@400;500;600;700&family=Recursive&display=swap');
 
-$dark: #11100f;
-$light-gray: #bbb;
-$light: #ffe6c5;
 $icon-size: 5em;
-$section-padding-vertical: 6em;
-$beige-on-blue: hsla(39, 100%, 92%, 0.659);
-
-@function tainted($s, $l) {
-	@return hsl(var(--button-hue), $s, $l);
-}
 
 html,
 body {
@@ -228,108 +221,6 @@ ul {
 	}
 }
 
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 10;
-
-	h1 {
-		font-family: 'Recursive', serif;
-		font-size: 1.5em;
-		font-weight: normal;
-		text-transform: lowercase;
-	}
-
-	div {
-		padding: 1em 0.5em;
-		align-items: center;
-		justify-content: center;
-		display: flex;
-		background-color: #271f17;
-		color: $light;
-		backdrop-filter: grayscale(0.5) blur(4px);
-		z-index: 2;
-	}
-
-	span {
-		background-color: $light;
-		height: 0.1em;
-		box-shadow:
-			0 0 10px #000a,
-			0 0 20px #000a;
-	}
-}
-
-$svg-overlap: 4%;
-$stroke-color: #1a1717;
-$outline-width: 0.13rem;
-$shake-amount: 5deg;
-$sticker-scale: 0.08;
-
-svg {
-	position: absolute;
-	pointer-events: none;
-	top: -$svg-overlap;
-	left: 0;
-	width: 100%;
-	height: 100% + 2 * $svg-overlap;
-	z-index: 0;
-	stroke-linejoin: round;
-	filter: drop-shadow(0 0 4px #0005);
-
-	line {
-		stroke: $stroke-color;
-	}
-
-	text {
-		pointer-events: all;
-		fill: #fb8;
-		stroke: $stroke-color;
-		stroke-width: $outline-width * 1.5;
-		paint-order: stroke;
-		font-family: 'Recursive';
-		font-size: var(--svg-title-size);
-		font-weight: bold;
-	}
-
-	rect {
-		pointer-events: none;
-	}
-}
-
-@keyframes shake-offset {
-	0% {
-		transform: rotate(-$shake-amount);
-	}
-	50% {
-		transform: rotate($shake-amount);
-	}
-	100% {
-		transform: rotate(-$shake-amount);
-	}
-}
-
-.shake {
-	animation: shake-offset 3.5s ease-in-out infinite;
-	transform-box: fill-box;
-	transform-origin: top center;
-}
-
-$sticker-inset: 64px * $sticker-scale;
-
-.sticker {
-	transform: translate(
-			calc(50% - var(--cardboard-cutout-width-half) - $sticker-inset),
-			calc(var(--cardboard-cutout-inset) - $sticker-inset)
-		)
-		scale($sticker-scale);
-	stroke: $stroke-color;
-	stroke-width: calc($outline-width / $sticker-scale);
-	paint-order: stroke;
-}
-
 .contrast-children {
 	gap: 4px;
 
@@ -359,17 +250,6 @@ section {
 
 	> *:not(div) {
 		text-align: center;
-	}
-}
-
-section#greeting {
-	padding-top: calc($section-padding-vertical + var(--header-margin));
-	text-align: center;
-	justify-content: center;
-
-	> p {
-		padding-bottom: 0;
-		margin: 0;
 	}
 }
 
@@ -409,73 +289,6 @@ section#greeting {
 	margin: 0;
 }
 
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-.cardboard {
-	background: none;
-	padding: 6rem 0;
-	justify-content: center;
-
-	--button-hue: 26;
-	--button-background: #{tainted(100%, 77%)};
-	--button-background-hover: #{tainted(65%, 65%)};
-	--button-background-active: #{tainted(30%, 54%)};
-
-	> * {
-		z-index: 1;
-	}
-
-	b {
-		color: var(--button-background);
-	}
-
-	> div {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		padding: 16px;
-		gap: 32px;
-		width: calc(var(--cardboard-cutout-html-width) * 4);
-
-		> div {
-			text-align: center;
-		}
-	}
-
-	> i {
-		position: absolute;
-		font-size: calc(2em + 1vw);
-		color: #1a1717;
-		animation: spin 12s linear infinite;
-	}
-}
-
-.cardboard-cutout {
-	transform: translateX(calc(50% - var(--cardboard-cutout-width-half)));
-	y: var(--cardboard-cutout-inset);
-	width: var(--cardboard-cutout-width);
-	height: calc(100% - 2 * var(--cardboard-cutout-inset));
-	rx: 4px;
-}
-
-section#about {
-	p {
-		margin: 0 0 24px 0;
-		text-align: justify;
-	}
-
-	h3 {
-		margin: 32px 0 16px 0;
-	}
-}
-
 li {
 	font-weight: 500;
 	opacity: 0.7;
@@ -490,13 +303,6 @@ li {
 	> i {
 		margin-left: 0.5em;
 	}
-}
-
-.tag {
-	border-radius: 1000px;
-	border: 2px solid $light-gray;
-	padding: 6px 10px;
-	gap: 4px;
 }
 
 @media screen and (min-width: 3000px) {
@@ -517,16 +323,5 @@ li {
 
 	header {
 		position: relative;
-	}
-
-	.sticker {
-		transform: translate(5%, 18%) scale(0.25);
-		stroke-width: $outline-width * 8;
-	}
-
-	.cardboard {
-		> i {
-			display: none;
-		}
 	}
 }
