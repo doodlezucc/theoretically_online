@@ -27,20 +27,11 @@
 </script>
 
 <svelte:head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="A collection of personal work, between software and music." />
 	<title>Theoretically Online</title>
+	<meta name="description" content="A collection of personal work, between software and music." />
 	<link rel="icon" href="favicon.ico" />
 	<script src="https://kit.fontawesome.com/a3de05bb60.js" crossorigin="anonymous"></script>
 </svelte:head>
-
-<header>
-	<div>
-		<h1>theoretically·online</h1>
-	</div>
-	<span></span>
-</header>
 
 <div class="content">
 	<section class="dark-on-light paper flicker" id="greeting">
