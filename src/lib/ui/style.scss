@@ -4,9 +4,6 @@ $dark: #11100f;
 $light-gray: #bbb;
 $light: #ffe6c5;
 $icon-size: 5em;
-$tex-cardboard: '../images/cardboard.jpg';
-$tex-paper: '../images/paper-with-fibers.jpg';
-$tex-paper-blue: '../images/paper-blue.jpg';
 $section-padding-vertical: 6em;
 $beige-on-blue: hsla(39, 100%, 92%, 0.659);
 
@@ -377,7 +374,7 @@ section#greeting {
 }
 
 .dark-on-light {
-	background: url($tex-paper-blue);
+	background: var(--tex-paper-blue);
 	color: black;
 	font-weight: 500;
 	position: relative;
@@ -404,7 +401,7 @@ section#greeting {
 }
 
 .paper {
-	background: url($tex-paper);
+	background: var(--tex-paper);
 	filter: sepia(0.2);
 }
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import '$lib/ui/style.scss';
 	import { onMount } from 'svelte';
 
@@ -29,11 +30,15 @@
 <svelte:head>
 	<title>Theoretically Online</title>
 	<meta name="description" content="A collection of personal work, between software and music." />
-	<link rel="icon" href="favicon.ico" />
+	<link rel="icon" href={asset('/favicon.ico')} />
 	<script src="https://kit.fontawesome.com/a3de05bb60.js" crossorigin="anonymous"></script>
 </svelte:head>
 
-<div class="content">
+<div
+	class="content"
+	style:--tex-paper={'url("' + asset('/images/paper-with-fibers.jpg') + '")'}
+	style:--tex-paper-blue={'url("' + asset('/images/paper-blue.jpg') + '")'}
+>
 	<section class="dark-on-light paper flicker" id="greeting">
 		<h2>Hello!</h2>
 		<p>I make web apps and stuff.</p>
@@ -75,7 +80,7 @@
 					height="1024"
 					patternTransform="scale(0.15)"
 				>
-					<image href="images/cardboard.jpg" />
+					<image href={asset('/images/cardboard.jpg')} />
 				</pattern>
 			</defs>
 
