@@ -123,47 +123,22 @@ button:not(:disabled):active {
 a {
 	color: inherit;
 	font-weight: var(--bold);
-}
-a:hover {
-	color: white;
-	background-color: #7778;
-}
-a:active {
-	background-color: #777f;
-}
-a.button {
-	@extend button;
-	text-decoration: none;
-	align-self: center;
-	text-align: center;
-}
-a.wrapper {
-	display: contents;
-}
 
-.row,
-.column {
-	display: flex;
-}
-.row {
-	flex-direction: row;
-}
-.column {
-	flex-direction: column;
-}
+	&:hover {
+		color: white;
+		background-color: #7778;
+	}
 
-.centered-pages {
-	margin: 2em 0;
-	display: grid;
-	grid-template-columns: 50% 50%;
-}
+	&:active {
+		background-color: #777f;
+	}
 
-.content {
-	overflow: hidden;
-}
-
-ul {
-	margin: 0;
+	&.button {
+		@extend button;
+		text-decoration: none;
+		align-self: center;
+		text-align: center;
+	}
 }
 
 .apps {
@@ -219,23 +194,6 @@ ul {
 	}
 }
 
-.contrast-children {
-	gap: 4px;
-
-	> p,
-	h2 {
-		background-color: $beige-on-blue;
-		padding: 2px;
-	}
-
-	button {
-		--button-hue: 39;
-		--button-background: #{tainted(100%, 98%)};
-		--button-background-hover: #{tainted(40%, 70%)};
-		--button-background-active: #{tainted(25%, 54%)};
-	}
-}
-
 section {
 	padding: $section-padding-vertical 6vw;
 	align-self: center;
@@ -252,7 +210,6 @@ section {
 }
 
 .dark-on-light {
-	background: var(--tex-paper-blue);
 	color: black;
 	font-weight: 500;
 	position: relative;
@@ -260,14 +217,9 @@ section {
 
 	--bold: bold;
 
-	--button-hue: 26;
-	--button-background: #{tainted(100%, 77%)};
-	--button-background-hover: #{tainted(61%, 68%)};
-	--button-background-active: #{tainted(37%, 54%)};
-
 	a:hover {
 		color: black;
-		background-color: #fff8;
+		background-color: #fffa;
 	}
 	a:active {
 		background-color: #ffff;
@@ -285,22 +237,6 @@ section {
 
 .no-margin {
 	margin: 0;
-}
-
-li {
-	font-weight: 500;
-	opacity: 0.7;
-	transition: 0.2s;
-
-	&:hover {
-		color: white;
-		opacity: 1;
-		transition: 0s;
-	}
-
-	> i {
-		margin-left: 0.5em;
-	}
 }
 
 @media screen and (min-width: 3000px) {

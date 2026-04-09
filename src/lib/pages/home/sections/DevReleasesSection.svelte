@@ -1,8 +1,13 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { backgroundStopMotion } from '$lib/common/background-stop-motion';
 </script>
 
-<section class="dark-on-light contrast-children" {@attach backgroundStopMotion()}>
+<section
+	class="dark-on-light contrast-children"
+	style:--texture={'url("' + asset('/images/paper-blue.jpg') + '")'}
+	{@attach backgroundStopMotion()}
+>
 	<h2>This One's For the Devs</h2>
 	<p class="no-margin">Resources for developers, such as installable packages.</p>
 	<p>
@@ -60,3 +65,23 @@
 		</div>
 	</div>
 </section>
+
+<style lang="scss">
+	@use '$lib/style/constants.scss' as *;
+
+	section {
+		background: var(--texture);
+		gap: 4px;
+
+		> p,
+		h2 {
+			background-color: $beige-on-blue;
+			padding: 2px;
+		}
+
+		--button-hue: 39;
+		--button-background: #{tainted(100%, 98%)};
+		--button-background-hover: #{tainted(40%, 70%)};
+		--button-background-active: #{tainted(25%, 54%)};
+	}
+</style>
