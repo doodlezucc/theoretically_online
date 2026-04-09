@@ -1,4 +1,8 @@
 <script lang="ts">
+	import '@fontsource-variable/montserrat/wght.css';
+	import '@fontsource/arvo/700';
+	import '@fontsource/recursive';
+
 	import '$lib/style/global.scss';
 
 	import Header from '$lib/common/Header.svelte';

@@ -1,7 +1,5 @@
 @use './constants.scss' as *;
 
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Montserrat:wght@400;500;600;700&family=Recursive&display=swap');
-
 $icon-size: 5em;
 
 html,
@@ -12,7 +10,7 @@ body {
 body {
 	background-color: $dark;
 	color: white;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat Variable', sans-serif;
 	display: flex;
 	flex-direction: column;
 	position: relative;
