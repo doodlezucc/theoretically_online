@@ -13,8 +13,6 @@
 	<ReleasesSection />
 
 	<DevReleasesSection />
-
-	<AboutSection />
 </div>
 
 <style lang="scss">
