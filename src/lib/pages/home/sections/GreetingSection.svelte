@@ -1,4 +1,8 @@
-<section class="dark-on-light paper flicker">
+<script lang="ts">
+	import { backgroundStopMotion } from '$lib/common/background-stop-motion';
+</script>
+
+<section class="dark-on-light paper" {@attach backgroundStopMotion()}>
 	<h2>Hello!</h2>
 	<p>I make web apps and stuff.</p>
 </section>

@@ -1,4 +1,8 @@
-<section class="dark-on-light contrast-children flicker">
+<script lang="ts">
+	import { backgroundStopMotion } from '$lib/common/background-stop-motion';
+</script>
+
+<section class="dark-on-light contrast-children" {@attach backgroundStopMotion()}>
 	<h2>This One's For the Devs</h2>
 	<p class="no-margin">Resources for developers, such as installable packages.</p>
 	<p>
