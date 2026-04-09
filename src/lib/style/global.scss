@@ -15,7 +15,9 @@ body {
 	flex-direction: column;
 	position: relative;
 	line-height: 1.4em;
-	overflow-y: scroll;
+	min-height: 100vh;
+	min-height: 100svh;
+	overflow-y: auto;
 	overflow-x: hidden;
 
 	--bold: 500;
@@ -42,6 +44,10 @@ body {
 
 ::selection {
 	background-color: #817770;
+}
+
+main {
+	flex: 1;
 }
 
 h1,

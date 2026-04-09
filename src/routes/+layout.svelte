@@ -5,6 +5,7 @@
 
 	import '$lib/style/global.scss';
 
+	import Footer from '$lib/common/Footer.svelte';
 	import Header from '$lib/common/Header.svelte';
 
 	let { children } = $props();
@@ -13,6 +14,8 @@
 <Header />
 
 {@render children()}
+
+<Footer />
 
 <svelte:head>
 	<script src="https://kit.fontawesome.com/a3de05bb60.js" crossorigin="anonymous"></script>
