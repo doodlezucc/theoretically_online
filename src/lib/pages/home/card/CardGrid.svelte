@@ -13,7 +13,7 @@
 </ul>
 
 <style lang="scss">
-	$spacing: 16px;
+	$spacing: 24px;
 
 	ul {
 		padding-inline-start: 0;
@@ -30,11 +30,6 @@
 			@media (max-width: 1100px) {
 				flex-basis: 100%;
 			}
-		}
-
-		> :global(br) {
-			display: block;
-			flex: 1;
 		}
 	}
 </style>

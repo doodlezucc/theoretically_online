@@ -3,8 +3,10 @@
 
 	import CardGrid from '../card/CardGrid.svelte';
 	import LineBreak from '../card/LineBreak.svelte';
+	import ClipShip from './release-cards/ClipShip.svelte';
 	import FlpJck from './release-cards/FlpJck.svelte';
 	import SnippetFeed from './release-cards/SnippetFeed.svelte';
+	import SpeedRunnersMultiplayerMod from './release-cards/SpeedRunnersMultiplayerMod.svelte';
 </script>
 
 <section id="demos">
@@ -12,10 +14,13 @@
 	<p>A collection of usable software I finished so far.</p>
 
 	<CardGrid>
-		<MoveMusic />
+		<ClipShip />
 		<FlpJck />
-		<SnippetFeed />
+		<SpeedRunnersMultiplayerMod />
 
 		<LineBreak />
+
+		<SnippetFeed />
+		<MoveMusic />
 	</CardGrid>
 </section>
