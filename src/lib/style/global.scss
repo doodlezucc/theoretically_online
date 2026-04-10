@@ -1,7 +1,5 @@
 @use './constants.scss' as *;
 
-$icon-size: 5em;
-
 html,
 body {
 	margin: 0;
@@ -74,27 +72,21 @@ b {
 	font-weight: var(--bold);
 }
 
-span {
-	display: flex;
-	flex-flow: wrap;
-	gap: 6px;
-}
-
-@mixin btn-elevate($amount) {
-	$horiz: 1em;
-	$vert: 0.8em;
+@mixin raised-effect-padding($amount) {
+	$horiz: 16px;
+	$vert: 12px;
 	padding: $vert $horiz ($vert + $amount) $horiz;
 	box-shadow: 0 (-$amount) 0 #0005 inset;
 
-	$pad: $horiz - $vert - $amount;
+	$pad: $vert - $amount;
 	@if $pad != 0px {
 		margin-top: $pad;
 	}
 }
 
 button {
-	@include btn-elevate(0.3em);
-	outline: none;
+	@include raised-effect-padding(4px);
+	display: inline-block;
 	border: none;
 	border-radius: 0.3em;
 	background-color: var(--button-background);
@@ -114,13 +106,13 @@ button:enabled {
 	cursor: pointer;
 }
 button:not(:disabled):hover {
-	@include btn-elevate(0.1em);
+	@include raised-effect-padding(2px);
 	transition: 0.15s;
 	color: var(--button-color-hover);
 	background-color: var(--button-background-hover);
 }
 button:not(:disabled):active {
-	@include btn-elevate(0.05em);
+	@include raised-effect-padding(1px);
 	transition: 0s;
 	color: var(--button-color-active);
 	background-color: var(--button-background-active);
@@ -155,53 +147,8 @@ a {
 	justify-content: center;
 }
 
-.app {
-	transition-duration: 0.1s;
-	display: inline-flex;
-	border-radius: 1em;
-	padding: 1em;
-	text-decoration: none;
-	background-color: #4443;
-	min-width: 10em;
-	max-width: 32em;
-	position: relative;
-
-	&:hover {
-		background-color: #4445;
-	}
-
-	h3,
-	b {
-		color: var(--col);
-		font-weight: bold;
-	}
-
-	> img {
-		width: $icon-size;
-		height: $icon-size;
-		margin-right: 1em;
-
-		@media (max-width: 800px) {
-			position: absolute;
-			right: 0;
-			margin-right: 0.5em;
-			top: 0.5em;
-			width: 2em;
-			height: 2em;
-		}
-	}
-	> div {
-		display: flex;
-		flex-direction: column;
-	}
-	p {
-		margin: 6px 0 auto 0;
-		padding-bottom: 1em;
-	}
-}
-
 section {
-	padding: $section-padding-vertical 6vw;
+	padding: $section-padding-vertical 32px;
 	align-self: center;
 	align-items: center;
 	display: flex;
