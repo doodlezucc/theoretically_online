@@ -8,7 +8,7 @@
 
 	{#snippet action()}
 		<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3364793221" class="button">
-			View Installation Guide <i class="fab fa-steam-symbol"></i>
+			View Installation Guide <i class="fab fa-steam"></i>
 		</a>
 	{/snippet}
 
