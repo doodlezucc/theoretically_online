@@ -9,7 +9,7 @@
 	import SpeedRunnersMultiplayerMod from './release-cards/SpeedRunnersMultiplayerMod.svelte';
 </script>
 
-<section id="demos">
+<section>
 	<h2>More Releases</h2>
 	<p>A collection of usable software I finished so far.</p>
 
@@ -24,3 +24,11 @@
 		<MoveMusic />
 	</CardGrid>
 </section>
+
+<style lang="scss">
+	section {
+		--card-background: #3334;
+		--card-background-hover: #4445;
+		--card-border: #444a;
+	}
+</style>

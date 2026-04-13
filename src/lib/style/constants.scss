@@ -3,8 +3,6 @@ $section-padding-vertical: 6em;
 $dark: #11100f;
 $light-gray: #bbb;
 
-$beige-on-blue: hsla(39, 100%, 92%, 0.659);
-
 @function tainted($s, $l) {
 	@return hsl(var(--button-hue), $s, $l);
 }

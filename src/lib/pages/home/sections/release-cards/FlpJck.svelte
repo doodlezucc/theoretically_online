@@ -4,8 +4,9 @@
 
 <Card
 	title="FlpJck"
-	releaseType="Desktop Program"
-	logoUrl="https://raw.githubusercontent.com/doodlezucc/FlpJck/refs/heads/master/app/style/icon/icon.png"
+	logo={{
+		url: 'https://raw.githubusercontent.com/doodlezucc/FlpJck/refs/heads/master/app/style/icon/icon.png'
+	}}
 	color="#ffc47f"
 >
 	Always keep the latest versions of your
@@ -18,7 +19,9 @@
 		</a>
 	{/snippet}
 
-	{#snippet releaseDate()}
+	{#snippet decoration()}
+		Desktop Program
+		<br />
 		<time datetime="2020-08">August 2020</time>
 	{/snippet}
 </Card>

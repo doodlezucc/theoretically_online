@@ -140,14 +140,6 @@ a {
 	}
 }
 
-.apps {
-	gap: 0.5em;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
 section {
 	padding: $section-padding-vertical 32px;
 	align-self: center;
@@ -177,10 +169,6 @@ section {
 	}
 	a:active {
 		background-color: #ffff;
-	}
-
-	.app {
-		background-color: $beige-on-blue;
 	}
 }
 

@@ -4,8 +4,9 @@
 
 <Card
 	title="SnippetFeed"
-	releaseType="Mobile App (not in stores though)"
-	logoUrl="https://raw.githubusercontent.com/doodlezucc/SnippetFeed/refs/heads/master/assets/icon/icon.png"
+	logo={{
+		url: 'https://raw.githubusercontent.com/doodlezucc/SnippetFeed/refs/heads/master/assets/icon/icon.png'
+	}}
 	color="#c3917d"
 >
 	Merge an audio file with an image to create a video suitable for <b>Instagram</b>.
@@ -16,7 +17,9 @@
 		</a>
 	{/snippet}
 
-	{#snippet releaseDate()}
+	{#snippet decoration()}
+		Mobile App (not in stores though)
+		<br />
 		<time datetime="2020-09">September 2020</time>
 	{/snippet}
 </Card>

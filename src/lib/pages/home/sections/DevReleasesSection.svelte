@@ -1,6 +1,16 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
 	import { backgroundStopMotion } from '$lib/common/background-stop-motion';
+	import CardGrid from '../card/CardGrid.svelte';
+	import LineBreak from '../card/LineBreak.svelte';
+	import DartGraceful from './dev-release-cards/DartGraceful.svelte';
+	import DartGridSpace from './dev-release-cards/DartGridSpace.svelte';
+	import DartPolymask from './dev-release-cards/DartPolymask.svelte';
+	import MoodleRest from './dev-release-cards/MoodleRest.svelte';
+	import SvelteInputSystem from './dev-release-cards/SvelteInputSystem.svelte';
+	import SvelteTether from './dev-release-cards/SvelteTether.svelte';
+	import SvelteYjs from './dev-release-cards/SvelteYjs.svelte';
+	import TSocket from './dev-release-cards/TSocket.svelte';
 </script>
 
 <section
@@ -15,59 +25,28 @@
 		<a href="https://github.com/doodlezucc">GitHub</a>.)
 	</p>
 
-	<div class="apps">
-		<div class="app">
-			<div>
-				<h3>Graceful</h3>
-				<p>A Dart library to handle <b>file logging</b> and <b>graceful exits</b>.</p>
-				<a href="https://pub.dev/packages/graceful" class="button" target="_blank">
-					Available on pub.dev <i class="fas fa-arrow-up-right-from-square"></i>
-				</a>
-			</div>
-		</div>
-		<div class="app">
-			<div>
-				<h3>Grid Space</h3>
-				<p>
-					A lightweight Dart library to create and convert between <b>square grids</b> and
-					<b>hexagonal grids</b>.
-				</p>
-				<a href="https://pub.dev/packages/grid_space" class="button" target="_blank">
-					Available on pub.dev <i class="fas fa-arrow-up-right-from-square"></i>
-				</a>
-			</div>
-		</div>
-		<div class="app">
-			<div>
-				<h3>MoodleREST</h3>
-				<p>
-					An unofficial generated API reference for
-					<a href="https://moodle.org/" target="_blank">Moodle</a>
-					web services.
-				</p>
-				<a href="https://doodlezucc.github.io/MoodleREST/" class="button" target="_blank">
-					View API Reference <i class="fas fa-arrow-up-right-from-square"></i>
-				</a>
-			</div>
-		</div>
-		<div class="app">
-			<div>
-				<h3>Polymask</h3>
-				<p>
-					A polygon merging Dart library with web/SVG implementation, made to be used in <b
-						>vector based drawing tools</b
-					>.
-				</p>
-				<a href="https://github.com/doodlezucc/web_polymask" class="button" target="_blank">
-					View on GitHub <i class="fab fa-github"></i>
-				</a>
-			</div>
-		</div>
-	</div>
+	<CardGrid>
+		<SvelteYjs />
+		<SvelteInputSystem />
+		<SvelteTether />
+
+		<LineBreak />
+
+		<DartGraceful />
+		<MoodleRest />
+
+		<LineBreak />
+
+		<DartGridSpace />
+		<DartPolymask />
+		<TSocket />
+	</CardGrid>
 </section>
 
 <style lang="scss">
 	@use '$lib/style/constants.scss' as *;
+
+	$beige-on-blue: hsla(39, 100%, 92%, 0.65);
 
 	section {
 		background: var(--texture);
@@ -76,8 +55,12 @@
 		> p,
 		h2 {
 			background-color: $beige-on-blue;
-			padding: 2px;
+			padding: 2px 4px;
 		}
+
+		--card-background: #{$beige-on-blue};
+		--card-background-hover: hsla(39, 100%, 92%, 0.85);
+		--card-border: transparent;
 
 		--button-hue: 39;
 		--button-background: #{tainted(100%, 98%)};

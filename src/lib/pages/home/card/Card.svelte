@@ -3,21 +3,23 @@
 
 	interface Props {
 		title: string;
-		logoUrl?: string;
-		releaseType: string;
-		color: string;
+		logo?: {
+			url: string;
+			scale?: number;
+		};
+		color?: string;
 		action: Snippet;
-		releaseDate: Snippet;
+		decoration: Snippet;
 		children: Snippet;
 	}
 
-	let { title, logoUrl, releaseType, color, action, releaseDate, children }: Props = $props();
+	let { title, logo, color, action, decoration, children }: Props = $props();
 </script>
 
-<li class="app" style:--color={color}>
+<li class="card" style:--color={color}>
 	<div>
-		{#if logoUrl}
-			<img width="40" src={logoUrl} alt="'{title}' Logo" />
+		{#if logo}
+			<img width="40" height="40" src={logo.url} alt="'{title}' Logo" style:--scale={logo.scale} />
 		{/if}
 		<div class="content">
 			<h3>{title}</h3>
@@ -27,17 +29,15 @@
 		</div>
 	</div>
 	<div class="action">
-		<p>
-			{@render releaseDate()}
-			<br />
-			{releaseType}
-		</p>
+		<div>
+			{@render decoration()}
+		</div>
 		{@render action()}
 	</div>
 </li>
 
 <style lang="scss">
-	li {
+	.card {
 		cursor: default;
 		display: grid;
 		grid-template-rows: 1fr max-content;
@@ -46,12 +46,12 @@
 		border-radius: 16px;
 
 		transition-duration: 0.1s;
-		background-color: #3334;
-		border: 1px solid #444a;
+		background-color: var(--card-background);
+		border: 1px solid var(--card-border);
 
 		&:hover {
-			background-color: #4445;
-			border-color: var(--color);
+			background-color: var(--card-background-hover);
+			border-color: var(--color, var(--card-border));
 		}
 
 		h3,
@@ -66,6 +66,7 @@
 		border-radius: 8px;
 		float: right;
 		margin: 12px;
+		scale: var(--scale, 1);
 	}
 
 	.content {
@@ -85,11 +86,12 @@
 		margin: 20px;
 		margin-top: 0;
 		display: flex;
+		gap: 4px;
 		align-items: center;
 
-		> p {
+		> div {
 			flex: 1;
-			opacity: 0.5;
+			color: hsla(from currentcolor h s l / 0.5);
 			font-size: 0.85rem;
 			line-height: 1.3;
 		}

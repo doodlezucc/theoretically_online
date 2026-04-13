@@ -2,7 +2,7 @@
 	import Card from '../../card/Card.svelte';
 </script>
 
-<Card title="SpeedRunners Multiplayer+" releaseType="Game Mod for PC" color="#55aaff">
+<Card title="SpeedRunners Multiplayer+" color="#55aaff">
 	A mod for the game <a href="https://www.speedrunners.com/">SpeedRunners</a> to bump the default
 	4-player limit up to 16.
 
@@ -12,7 +12,9 @@
 		</a>
 	{/snippet}
 
-	{#snippet releaseDate()}
+	{#snippet decoration()}
+		Game Mod for PC
+		<br />
 		<time datetime="2024-11">November 2024</time>
 	{/snippet}
 </Card>

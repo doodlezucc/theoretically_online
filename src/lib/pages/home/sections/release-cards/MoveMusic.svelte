@@ -5,8 +5,10 @@
 
 <Card
 	title="Move Music"
-	releaseType="Web App"
-	logoUrl="https://raw.githubusercontent.com/doodlezucc/move_music/master/web/style/favicon.ico"
+	logo={{
+		url: 'https://raw.githubusercontent.com/doodlezucc/move_music/master/web/style/favicon.ico',
+		scale: 0.8
+	}}
 	color="#ff4870"
 >
 	Move your liked songs, created playlists and followed artists from
@@ -16,7 +18,9 @@
 		<a href={resolve('/movemusic')} class="button">Open Web App</a>
 	{/snippet}
 
-	{#snippet releaseDate()}
+	{#snippet decoration()}
+		Web App
+		<br />
 		<time datetime="2021-04">April 2021</time>
 	{/snippet}
 </Card>
