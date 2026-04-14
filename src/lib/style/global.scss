@@ -1,7 +1,5 @@
 @use './constants.scss' as *;
 
-$icon-size: 5em;
-
 html,
 body {
 	margin: 0;
@@ -15,7 +13,9 @@ body {
 	flex-direction: column;
 	position: relative;
 	line-height: 1.4em;
-	overflow-y: scroll;
+	min-height: 100vh;
+	min-height: 100svh;
+	overflow-y: auto;
 	overflow-x: hidden;
 
 	--bold: 500;
@@ -24,7 +24,6 @@ body {
 	--cardboard-cutout-width-half: calc(var(--cardboard-cutout-width) / 2);
 	--cardboard-cutout-inset: 23%;
 	--section-height: 30em;
-	--header-margin: 2em;
 	--svg-title-size: 11px;
 
 	--button-color: #{$dark};
@@ -42,6 +41,10 @@ body {
 
 ::selection {
 	background-color: #817770;
+}
+
+main {
+	flex: 1;
 }
 
 h1,
@@ -68,27 +71,18 @@ b {
 	font-weight: var(--bold);
 }
 
-span {
-	display: flex;
-	flex-flow: wrap;
-	gap: 6px;
-}
-
-@mixin btn-elevate($amount) {
-	$horiz: 1em;
-	$vert: 0.8em;
+@mixin raised-effect-padding($amount) {
+	$horiz: 16px;
+	$vert: 12px;
 	padding: $vert $horiz ($vert + $amount) $horiz;
 	box-shadow: 0 (-$amount) 0 #0005 inset;
 
-	$pad: $horiz - $vert - $amount;
-	@if $pad != 0px {
-		margin-top: $pad;
-	}
+	margin-top: -$amount;
 }
 
 button {
-	@include btn-elevate(0.3em);
-	outline: none;
+	@include raised-effect-padding(4px);
+	display: inline-block;
 	border: none;
 	border-radius: 0.3em;
 	background-color: var(--button-background);
@@ -98,146 +92,54 @@ button {
 	font-size: 0.9em;
 	text-transform: uppercase;
 	line-height: normal;
-	transition: 0.5s;
+	transition-duration: 0.5s;
 
 	i {
-		font-size: inherit;
+		font-size: 1em;
+		margin-left: 0.4em;
 	}
-}
-button:enabled {
-	cursor: pointer;
-}
-button:not(:disabled):hover {
-	@include btn-elevate(0.1em);
-	transition: 0.15s;
-	color: var(--button-color-hover);
-	background-color: var(--button-background-hover);
-}
-button:not(:disabled):active {
-	@include btn-elevate(0.05em);
-	transition: 0s;
-	color: var(--button-color-active);
-	background-color: var(--button-background-active);
+
+	&:not(:disabled) {
+		cursor: pointer;
+
+		&:hover {
+			@include raised-effect-padding(2px);
+			transition-duration: 0.15s;
+			color: var(--button-color-hover);
+			background-color: var(--button-background-hover);
+		}
+		&:active {
+			@include raised-effect-padding(1px);
+			transition-duration: 0s;
+			color: var(--button-color-active);
+			background-color: var(--button-background-active);
+		}
+	}
 }
 
 a {
 	color: inherit;
 	font-weight: var(--bold);
-}
-a:hover {
-	color: white;
-	background-color: #7778;
-}
-a:active {
-	background-color: #777f;
-}
-a.button {
-	@extend button;
-	text-decoration: none;
-	align-self: center;
-	text-align: center;
-}
-a.wrapper {
-	display: contents;
-}
-
-.row,
-.column {
-	display: flex;
-}
-.row {
-	flex-direction: row;
-}
-.column {
-	flex-direction: column;
-}
-
-.centered-pages {
-	margin: 2em 0;
-	display: grid;
-	grid-template-columns: 50% 50%;
-}
-
-.content {
-	overflow: hidden;
-}
-
-ul {
-	margin: 0;
-}
-
-.apps {
-	gap: 0.5em;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.app {
-	transition-duration: 0.1s;
-	display: inline-flex;
-	border-radius: 1em;
-	padding: 1em;
-	text-decoration: none;
-	background-color: #4443;
-	min-width: 10em;
-	max-width: 32em;
-	position: relative;
 
 	&:hover {
-		background-color: #4445;
+		color: white;
+		background-color: #7778;
 	}
 
-	h3,
-	b {
-		color: var(--col);
-		font-weight: bold;
+	&:active {
+		background-color: #777f;
 	}
 
-	> img {
-		width: $icon-size;
-		height: $icon-size;
-		margin-right: 1em;
-
-		@media (max-width: 800px) {
-			position: absolute;
-			right: 0;
-			margin-right: 0.5em;
-			top: 0.5em;
-			width: 2em;
-			height: 2em;
-		}
-	}
-	> div {
-		display: flex;
-		flex-direction: column;
-	}
-	p {
-		margin: 6px 0 auto 0;
-		padding-bottom: 1em;
-	}
-}
-
-.contrast-children {
-	gap: 4px;
-
-	> p,
-	h2 {
-		background-color: $beige-on-blue;
-		padding: 2px;
-	}
-
-	button {
-		--button-hue: 39;
-		--button-background: #{tainted(100%, 98%)};
-		--button-background-hover: #{tainted(40%, 70%)};
-		--button-background-active: #{tainted(25%, 54%)};
+	&.button {
+		@extend button;
+		text-decoration: none;
+		align-self: center;
+		text-align: center;
 	}
 }
 
 section {
-	padding: $section-padding-vertical 6vw;
+	padding: 100px 32px;
 	align-self: center;
 	align-items: center;
 	display: flex;
@@ -252,7 +154,6 @@ section {
 }
 
 .dark-on-light {
-	background: var(--tex-paper-blue);
 	color: black;
 	font-weight: 500;
 	position: relative;
@@ -260,21 +161,12 @@ section {
 
 	--bold: bold;
 
-	--button-hue: 26;
-	--button-background: #{tainted(100%, 77%)};
-	--button-background-hover: #{tainted(61%, 68%)};
-	--button-background-active: #{tainted(37%, 54%)};
-
 	a:hover {
 		color: black;
-		background-color: #fff8;
+		background-color: #fffa;
 	}
 	a:active {
 		background-color: #ffff;
-	}
-
-	.app {
-		background-color: $beige-on-blue;
 	}
 }
 
@@ -285,22 +177,6 @@ section {
 
 .no-margin {
 	margin: 0;
-}
-
-li {
-	font-weight: 500;
-	opacity: 0.7;
-	transition: 0.2s;
-
-	&:hover {
-		color: white;
-		opacity: 1;
-		transition: 0s;
-	}
-
-	> i {
-		margin-left: 0.5em;
-	}
 }
 
 @media screen and (min-width: 3000px) {
@@ -315,11 +191,6 @@ li {
 		--cardboard-cutout-html-width: 21vw;
 		--cardboard-cutout-width: 19vw;
 		--section-height: 20em;
-		--header-margin: 0em;
 		--svg-title-size: 9px;
-	}
-
-	header {
-		position: relative;
 	}
 }
