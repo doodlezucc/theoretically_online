@@ -19,7 +19,6 @@
 		background-image: var(--texture);
 		filter: sepia(0.2);
 
-		padding-top: calc($section-padding-vertical + var(--header-margin));
 		text-align: center;
 		justify-content: center;
 

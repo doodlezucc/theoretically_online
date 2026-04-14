@@ -24,7 +24,6 @@ body {
 	--cardboard-cutout-width-half: calc(var(--cardboard-cutout-width) / 2);
 	--cardboard-cutout-inset: 23%;
 	--section-height: 30em;
-	--header-margin: 2em;
 	--svg-title-size: 11px;
 
 	--button-color: #{$dark};
@@ -140,7 +139,7 @@ a {
 }
 
 section {
-	padding: $section-padding-vertical 32px;
+	padding: 100px 32px;
 	align-self: center;
 	align-items: center;
 	display: flex;
@@ -192,11 +191,6 @@ section {
 		--cardboard-cutout-html-width: 21vw;
 		--cardboard-cutout-width: 19vw;
 		--section-height: 20em;
-		--header-margin: 0em;
 		--svg-title-size: 9px;
-	}
-
-	header {
-		position: relative;
 	}
 }
