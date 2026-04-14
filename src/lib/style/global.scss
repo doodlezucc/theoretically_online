@@ -78,10 +78,7 @@ b {
 	padding: $vert $horiz ($vert + $amount) $horiz;
 	box-shadow: 0 (-$amount) 0 #0005 inset;
 
-	$pad: $vert - $amount;
-	@if $pad != 0px {
-		margin-top: $pad;
-	}
+	margin-top: -$amount;
 }
 
 button {
@@ -96,27 +93,29 @@ button {
 	font-size: 0.9em;
 	text-transform: uppercase;
 	line-height: normal;
-	transition: 0.5s;
+	transition-duration: 0.5s;
 
 	i {
 		font-size: 1em;
 		margin-left: 0.4em;
 	}
-}
-button:enabled {
-	cursor: pointer;
-}
-button:not(:disabled):hover {
-	@include raised-effect-padding(2px);
-	transition: 0.15s;
-	color: var(--button-color-hover);
-	background-color: var(--button-background-hover);
-}
-button:not(:disabled):active {
-	@include raised-effect-padding(1px);
-	transition: 0s;
-	color: var(--button-color-active);
-	background-color: var(--button-background-active);
+
+	&:not(:disabled) {
+		cursor: pointer;
+
+		&:hover {
+			@include raised-effect-padding(2px);
+			transition-duration: 0.15s;
+			color: var(--button-color-hover);
+			background-color: var(--button-background-hover);
+		}
+		&:active {
+			@include raised-effect-padding(1px);
+			transition-duration: 0s;
+			color: var(--button-color-active);
+			background-color: var(--button-background-active);
+		}
+	}
 }
 
 a {
