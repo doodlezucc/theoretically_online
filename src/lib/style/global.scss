@@ -1,4 +1,5 @@
-@use './constants.scss' as *;
+@use './constants' as *;
+@use './mixins' as *;
 
 html,
 body {
@@ -92,6 +93,7 @@ button {
 	font-size: 0.9em;
 	text-transform: uppercase;
 	line-height: normal;
+	transition-property: box-shadow, background-color, color, padding-bottom, margin-top;
 	transition-duration: 0.5s;
 
 	i {
@@ -186,11 +188,13 @@ section {
 	}
 }
 
-@media screen and (max-width: 800px) {
+@include on-mobile {
 	body {
 		--cardboard-cutout-html-width: 21vw;
 		--cardboard-cutout-width: 19vw;
 		--section-height: 20em;
 		--svg-title-size: 9px;
+
+		font-size: 14px;
 	}
 }

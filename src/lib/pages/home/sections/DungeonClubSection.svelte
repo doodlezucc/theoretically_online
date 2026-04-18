@@ -89,7 +89,8 @@
 </section>
 
 <style lang="scss">
-	@use '$lib/style/constants.scss' as *;
+	@use '$lib/style/constants' as *;
+	@use '$lib/style/mixins' as *;
 
 	@keyframes spin {
 		0% {
@@ -215,7 +216,7 @@
 		paint-order: stroke;
 	}
 
-	@media screen and (max-width: 800px) {
+	@include on-mobile {
 		.sticker {
 			display: none;
 		}

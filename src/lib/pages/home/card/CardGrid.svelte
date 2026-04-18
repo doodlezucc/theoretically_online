@@ -13,6 +13,8 @@
 </ul>
 
 <style lang="scss">
+	@use '$lib/style/mixins' as *;
+
 	$spacing: 24px;
 
 	ul {
@@ -20,15 +22,21 @@
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
-		grid-template-columns: repeat(6, 1fr);
 		column-gap: $spacing;
 
 		> :global(li) {
-			width: 30em;
+			width: min(30em, calc(100vw - 24px));
 			margin: ($spacing * 0.5) 0;
+		}
+	}
 
-			@media (max-width: 1100px) {
-				flex-basis: 100%;
+	@include on-confined {
+		ul {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+			> :global(li) {
+				width: auto;
 			}
 		}
 	}

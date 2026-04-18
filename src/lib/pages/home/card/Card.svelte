@@ -37,7 +37,10 @@
 </li>
 
 <style lang="scss">
+	@use '$lib/style/mixins' as *;
+
 	.card {
+		position: relative;
 		cursor: default;
 		display: grid;
 		grid-template-rows: 1fr max-content;
@@ -45,7 +48,9 @@
 		text-align: start;
 		border-radius: 16px;
 
-		transition-duration: 0.1s;
+		transition:
+			border 0.1s,
+			background-color 0.1s;
 		background-color: var(--card-background);
 		border: 1px solid var(--card-border);
 
@@ -94,6 +99,11 @@
 			color: hsla(from currentcolor h s l / 0.5);
 			font-size: 0.85rem;
 			line-height: 1.3;
+		}
+
+		@include on-confined {
+			display: grid;
+			gap: 8px;
 		}
 	}
 </style>
