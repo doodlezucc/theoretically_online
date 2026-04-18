@@ -32,11 +32,9 @@
 
 	@include on-confined {
 		ul {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
 			> :global(li) {
-				width: auto;
+				min-width: min(300px, calc(100vw - 24px));
+				flex: 1;
 			}
 		}
 	}

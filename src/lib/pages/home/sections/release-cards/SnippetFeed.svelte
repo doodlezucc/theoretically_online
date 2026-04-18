@@ -1,13 +1,14 @@
 <script lang="ts">
-	import Card from '../../card/Card.svelte';
+	import ReleaseCard from './ReleaseCard.svelte';
 </script>
 
-<Card
+<ReleaseCard
 	title="SnippetFeed"
 	logo={{
 		url: 'https://raw.githubusercontent.com/doodlezucc/SnippetFeed/refs/heads/master/assets/icon/icon.png'
 	}}
 	color="#c3917d"
+	releaseType="Mobile App (not in stores though)"
 >
 	Merge an audio file with an image to create a video suitable for <b>Instagram</b>.
 
@@ -17,9 +18,7 @@
 		</a>
 	{/snippet}
 
-	{#snippet decoration()}
-		Mobile App (not in stores though)
-		<br />
+	{#snippet releaseDate()}
 		<time datetime="2020-09">September 2020</time>
 	{/snippet}
-</Card>
+</ReleaseCard>

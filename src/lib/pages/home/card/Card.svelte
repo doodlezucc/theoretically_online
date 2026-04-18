@@ -48,11 +48,11 @@
 		text-align: start;
 		border-radius: 16px;
 
+		background-color: var(--card-background);
+		border: 1px solid var(--card-border);
 		transition:
 			border 0.1s,
 			background-color 0.1s;
-		background-color: var(--card-background);
-		border: 1px solid var(--card-border);
 
 		&:hover {
 			background-color: var(--card-background-hover);
@@ -64,6 +64,10 @@
 		:global(p a) {
 			color: var(--color);
 			font-weight: bold;
+		}
+
+		@include on-confined {
+			gap: 2em;
 		}
 	}
 
