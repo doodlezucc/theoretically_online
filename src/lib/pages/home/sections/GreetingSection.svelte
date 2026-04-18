@@ -47,7 +47,7 @@
 	@media (min-width: 1500px) {
 		.name-card {
 			position: absolute;
-			translate: 120% 0%;
+			translate: calc(50% + 15vw) 0%;
 			rotate: -2deg;
 		}
 	}
