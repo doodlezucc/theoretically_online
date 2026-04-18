@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import Card from '../../card/Card.svelte';
 </script>
 
@@ -15,7 +14,7 @@
 	<b>YouTube&nbsp;Music to Spotify</b>.
 
 	{#snippet action()}
-		<a href={resolve('/movemusic')} class="button">Open Web App</a>
+		<a href="https://movemusic.theoretically.online/" class="button"> Open Web App </a>
 	{/snippet}
 
 	{#snippet decoration()}
