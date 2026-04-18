@@ -23,6 +23,8 @@
 </Card>
 
 <style lang="scss">
+	@use '$lib/style/mixins' as *;
+
 	.badges {
 		display: flex;
 		align-items: center;
@@ -30,6 +32,18 @@
 
 		filter: contrast(1) sepia(1);
 		transition: 0.25s;
+
+		@include on-confined {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 1em;
+		}
+
+		@include on-mobile {
+			margin: 0.75em;
+			scale: 0.75;
+		}
 	}
 
 	:global(.card:hover) .badges {

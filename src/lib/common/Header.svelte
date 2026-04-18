@@ -3,6 +3,8 @@
 </header>
 
 <style lang="scss">
+	@use '$lib/style/mixins' as *;
+
 	$light: #ffe6c5;
 
 	header {
@@ -21,6 +23,10 @@
 		background-color: #271f17;
 		color: $light;
 		z-index: 2;
+
+		@include on-mobile {
+			position: relative;
+		}
 	}
 
 	h1 {
